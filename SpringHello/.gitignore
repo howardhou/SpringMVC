@@ -1,4 +1,3 @@
-/out
 
 # Compiled class file
 *.class
@@ -7,9 +6,10 @@
 *.log
 
 ### IntelliJ IDEA ###
-.idea
+# .idea
+out
 *.iws
-*.iml
+# *.iml
 *.ipr
 
 # BlueJ files
