@@ -11,6 +11,8 @@
     <title>$Title$</title>
   </head>
   <body>
+  test  : ${requestScope.username}
+  <br>
   $END$
   </body>
 </html>
