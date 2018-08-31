@@ -69,4 +69,18 @@ public class User2Controller {
         return "loginForm";
     }
 
+    // http://localhost:8080/user2/getuser/264
+    @RequestMapping("/getuser/{userid}")
+    public String getUser(@PathVariable Integer userid, Model model){
+        logger.info("user id : " + userid);
+
+        for (User user : userList) {
+            if (user.getUserid() == userid){
+                model.addAttribute("user", user);
+                break;
+            }
+        }
+
+        return "welcome";
+    }
 }
