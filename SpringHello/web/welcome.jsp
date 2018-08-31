@@ -15,8 +15,10 @@ ${requestScope.message}
 <br>
 
 <h3>欢迎 [${requestScope.user.username}] 登录</h3>
-<h3>欢迎 [${sessionScope.user.username}] 登录, 来自Session</h3>
 
 <b>User ID: [${requestScope.user.userid}] </b>
+
+<h3>欢迎 [${sessionScope.user.username}] 登录, 来自Session</h3>
+
 </body>
 </html>
