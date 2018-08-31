@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/json")
@@ -20,7 +22,7 @@ public class BookController {
     @RequestMapping(value = "/testRequestBody")
     public void setJson(@RequestBody Book book, HttpServletResponse response) throws Exception {
 
-        logger.info("================");
+        logger.info("======== setJson ========");
 
         ObjectMapper mapper = new ObjectMapper();
 
@@ -34,5 +36,16 @@ public class BookController {
     @RequestMapping(value = "/test")
     public String test() {
         return "index";
+    }
+
+    @RequestMapping(value = "/testResponseBody")
+    @ResponseBody public Object getJson() {
+
+        logger.info("========= getJson =======");
+
+        List<Book> list = new ArrayList<Book>();
+        list.add(new Book(1, "Spring MVC 应用实战", "侯冬冬"));
+        list.add(new Book(2,"Spring Cloud 实战", "李刚"));
+        return list;
     }
 }

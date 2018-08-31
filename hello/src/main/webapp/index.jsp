@@ -11,6 +11,8 @@
 
         $(document).ready(function(){
             testRequestBody();
+
+            testResponseBody();
         });
 
         function testRequestBody() {
@@ -39,12 +41,33 @@
             });
         }
 
+        function testResponseBody() {
+            $.post("/json/testResponseBody", null, function (data) {
+                $.each(data, function () {
+                    var tr = $("<tr align='center' />");
+                    $("<td />").html(this.id).appendTo(tr);
+                    $("<td />").html(this.name).appendTo(tr);
+                    $("<td />").html(this.author).appendTo(tr);
+                    $("#booktable").append(tr);
+                });
+            }, "json");
+        }
     </script>
 <body>
-<h2>Hello World!</h2>
+
 <h2>测试接收JSON格式的数据</h2>
 编号：<span id="id" ></span> <br>
 书名：<span id="name"></span> <br>
 作者：<span id="author"></span><br>
+
+<br>
+<h2>测试返回JSON格式的数据</h2>
+<table id="booktable" border="1" style="border-collapse: collapse">
+    <tr align="center">
+        <th>编号</th>
+        <th>书名</th>
+        <th>作者</th>
+    </tr>
+</table>
 </body>
 </html>
