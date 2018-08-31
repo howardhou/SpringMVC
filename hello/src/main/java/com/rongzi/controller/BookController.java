@@ -1,5 +1,6 @@
 package com.rongzi.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -33,6 +34,18 @@ public class BookController {
         response.getWriter().println(mapper.writeValueAsString(book));
     }
 
+    @RequestMapping(value = "/testRequestBody2")
+    public void setJson2(@RequestBody Book book, HttpServletResponse response) throws Exception {
+
+        logger.info("======== setJson2 ========");
+
+        logger.info(JSONObject.toJSONString(book));
+
+        book.setAuthor("侯冬冬");
+        response.setContentType("text/html;charset=UTF-8");
+        response.getWriter().println(JSONObject.toJSONString(book));
+    }
+
     @RequestMapping(value = "/test")
     public String test() {
         return "index";
@@ -48,4 +61,5 @@ public class BookController {
         list.add(new Book(2,"Spring Cloud 实战", "李刚"));
         return list;
     }
+
 }

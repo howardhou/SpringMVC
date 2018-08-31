@@ -19,7 +19,7 @@
 
             var a = JSON.stringify({id:1,name:"Spring MVC 实战"});
 
-            $.ajax({url:"/json/testRequestBody",
+            $.ajax({url:"/json/testRequestBody2",
                 dataType: "json",
                 type: "POST",
                 contentType:"application/json",

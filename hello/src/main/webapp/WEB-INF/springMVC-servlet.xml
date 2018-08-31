@@ -8,10 +8,32 @@
     <context:component-scan base-package="com.rongzi.controller" />
 
     <!--自动注册 RequestMappingHandlerMapping 和 RequestMappingHandlerAdapter 两个Bean-->
-    <mvc:annotation-driven></mvc:annotation-driven>
+    <!--<mvc:annotation-driven/>-->
+
+    <!--Spring MVC 默认使用的是 MappingJackson2HttpMessageConverter 转换器， 所以必须加入Jackson的依赖，但是实际中，更多使用fastjson-->
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="false">
+            <!--下面4个转换器不配置也没有关系，不影响测试-->
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter" />
+            <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"/>
+            <!--配置 fastjson 中实现的 HttpMessageConverter 转换器-->
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                <!--加入支持的媒体类型：返回ContentType-->
+                <property name="supportedMediaTypes">
+                    <list>
+                        <!--这里不能写反，否则 IE 会提示下载-->
+                        <value>text/html;charset=UTF-8</value>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
     <!--使用默认的 Servlet 来响应静态文件，因为 DispatcherServlet 会截获所有URL请求，找不到时，会报 404 错误，加上默认servlet 会去找静态文件-->
-    <mvc:default-servlet-handler></mvc:default-servlet-handler>
+    <mvc:default-servlet-handler/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/" />
