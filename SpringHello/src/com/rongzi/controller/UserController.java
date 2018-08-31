@@ -57,14 +57,4 @@ public class UserController {
         return mv;
     }
 
-    // http://localhost:8080/user/login5?loginname=houdongdong&password=123456
-    @RequestMapping("/login5")
-    public String login(@RequestParam("loginname") String loginname, @RequestParam("password") String password){
-
-        System.out.println("loginname : " + loginname);
-        System.out.println("password : " + password);
-
-        return "index";
-    }
-
 }
