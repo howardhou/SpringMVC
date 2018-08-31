@@ -8,6 +8,7 @@ import org.springframework.web.servlet.mvc.Controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+// http://localhost:8080/hello
 public class HelloController implements Controller {
 
     private static final Log logger = LogFactory.getLog(HelloController.class);
@@ -18,7 +19,7 @@ public class HelloController implements Controller {
 
         ModelAndView mv = new ModelAndView();
         mv.addObject("message", "Hello World!");
-        mv.setViewName("welcome.jsp");
+        mv.setViewName("welcome");
         return mv;
     }
 }

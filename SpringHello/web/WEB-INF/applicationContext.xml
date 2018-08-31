@@ -4,20 +4,22 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!--ApplicationContext.xml  是spring 全局配置文件，用来控制spring 特性-->
+    <!--如果直接使用SpringMVC是可以不添加applicationContext.xml文件的-->
+    <!--使用applicationContext.xml文件时是需要在web.xml中添加listener的：org.springframework.web.context.ContextLoaderListener-->
 
-    <bean name="/hello" class="com.rongzi.controller.HelloController"></bean>
+
     <!--一个 处理器映射器，将bean的name作为url进行查询-->
-    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
+    <!--<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>-->
     <!--一个 处理器适配器-->
-    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"></bean>
+    <!--<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"></bean>-->
 
 
-    <context:component-scan base-package="com.rongzi.controller"></context:component-scan>
     <!--注解类型的 处理器映射器-->
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>-->
     <!--注解类型的 处理器适配器-->
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"></bean>
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"></bean>-->
 
     <!--视图解析器-->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"></bean>
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"></bean>-->
 </beans>

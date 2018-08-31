@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!--如果直接采用SpringMVC，只需要把所有相关配置放到xxx-servlet.xml中就OK了-->
+    <!--dispatcher-servlet.xml 是spring mvc里面的-->
 
+    <bean name="/hello" class="com.rongzi.controller.HelloController"></bean>
+
+    <!--自动扫描 base-package 下面的 java 文件， 如果扫描到有Spring注解的类，将扫描到的类注册为 Spring 的bean-->
+    <context:component-scan base-package="com.rongzi.controller"></context:component-scan>
+
+    <!--视图解析-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
 </beans>

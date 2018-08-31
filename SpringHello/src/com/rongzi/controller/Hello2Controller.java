@@ -10,13 +10,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class Hello2Controller {
     private static final Log logger = LogFactory.getLog(Hello2Controller.class);
 
+    // http://localhost:8080/hello2
     @RequestMapping("/hello2")
     public ModelAndView hello(){
         logger.info("Hello 方法 被调用了");
 
         ModelAndView mv = new ModelAndView();
         mv.addObject("message", "Hello World! 2222");
-        mv.setViewName("welcome.jsp");
+        mv.setViewName("welcome");
         return mv;
     }
 }
