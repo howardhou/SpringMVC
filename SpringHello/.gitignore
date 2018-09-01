@@ -6,7 +6,7 @@
 *.log
 
 ### IntelliJ IDEA ###
-.idea/workspace.xml
+.idea
 out
 *.iws
 # *.iml

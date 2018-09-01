@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.support.RequestContext;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -25,8 +27,8 @@ public class User2Controller {
         userList = new ArrayList<User>();
     }
 
-    // http://localhost:8080/user2/register
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    // http://localhost:8080/user2/registerForm
+    @RequestMapping(value = "/registerForm", method = RequestMethod.GET)
     public String registerForm(){
         logger.info("GET registerForm");
         return "registerForm";
@@ -54,11 +56,12 @@ public class User2Controller {
     }
 
     // for login
-    // GET http://localhost:8080/user2/login?loginname=howard&password=123456
+    // GET http://localhost:8080/user2/login?loginname=admin&password=123
     @RequestMapping(value = "/login")
     public String login(@RequestParam("loginname") String loginname,
                         @RequestParam("password") String password,
-                        Model model){
+                        Model model,
+                        HttpServletRequest request){
         logger.info(" login");
         for (User user : userList){
             if (user.getLoginname().equals(loginname) && user.getPassword().equals(password)){
@@ -66,6 +69,15 @@ public class User2Controller {
                 return "welcome";
             }
         }
+
+        if (loginname != null && loginname.equals("admin") && password !=null && password.equals("123")){
+            RequestContext requestContext = new RequestContext(request);
+            String username = requestContext.getMessage("username");
+            User user = new User(loginname, password, username);
+            model.addAttribute("user", user);
+            return "welcome";
+        }
+
         return "loginForm";
     }
 
@@ -82,5 +94,12 @@ public class User2Controller {
         }
 
         return "welcome";
+    }
+
+    // http://localhost:8080/user2/loginForm
+    @RequestMapping(value = "/loginForm", method = RequestMethod.GET)
+    public String loginForm(){
+        logger.info("GET loginForm");
+        return "loginForm2";
     }
 }

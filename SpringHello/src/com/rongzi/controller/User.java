@@ -13,6 +13,12 @@ public class User {
         super();
     }
 
+    public User(String loginname, String password, String username){
+        this.loginname = loginname;
+        this.password = password;
+        this.username = username;
+    }
+
     public int getUserid() {
         return userid;
     }
