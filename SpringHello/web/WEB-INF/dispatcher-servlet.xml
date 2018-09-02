@@ -27,6 +27,8 @@
     <mvc:interceptors>
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
     </mvc:interceptors>
-    <!--是用 AcceptHeader 语言区域解析器， 为默认值，不配置也可以-->
-    <bean class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver"/>
+    <!-- 语言区域解析器， 默认是 AcceptHeaderLocaleResolver-->
+    <!--<bean class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver"/>-->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
+
 </beans>
