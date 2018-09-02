@@ -13,6 +13,16 @@
     <!--自动扫描 base-package 下面的 java 文件， 如果扫描到有Spring注解的类，将扫描到的类注册为 Spring 的bean-->
     <context:component-scan base-package="com.rongzi.controller"></context:component-scan>
 
+    <!-- 该标签会自动注册HandlerMapping 和 HandlerAdapter 两个Bean, 这是@Controller分发请求必须的-->
+    <!-- 该标签还会注册默认的 conversionService， 以满足大多数类型的转换，这里是要注册自定义的类型转换器-->
+    <mvc:annotation-driven conversion-service="conversionService" />
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="com.rongzi.converter.StringToDateConverter"/>
+            </list>
+        </property>
+    </bean>
     <!--视图解析-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/" />

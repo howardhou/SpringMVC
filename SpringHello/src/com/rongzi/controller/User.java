@@ -1,5 +1,7 @@
 package com.rongzi.controller;
 
+import java.util.Date;
+
 public class User {
 
     private int userid;
@@ -8,6 +10,7 @@ public class User {
     private String username;
     private String sex;
     private Integer age;
+    private Date birthday;
 
     public User(){
         super();
@@ -65,5 +68,13 @@ public class User {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 }

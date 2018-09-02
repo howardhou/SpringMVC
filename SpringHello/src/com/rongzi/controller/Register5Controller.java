@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/register")
 public class Register5Controller {
 
-    // 此方法的返回值不是一个视图，而是 Model 属性的值，Model名称是username
-    // 视图名称由 @RequestMapping 的 value值决定
+    // 表示 参数 user 就是 model 中的属性
     @RequestMapping(value = "/register5")
     public String register(@ModelAttribute("user") User user)
     {
