@@ -15,7 +15,8 @@
 
     <!-- 该标签会自动注册HandlerMapping 和 HandlerAdapter 两个Bean, 这是@Controller分发请求必须的-->
     <!-- 该标签还会注册默认的 conversionService， 以满足大多数类型的转换，这里是要注册自定义的类型转换器-->
-    <!--<mvc:annotation-driven conversion-service="conversionService" />-->
+    <mvc:annotation-driven conversion-service="conversionService" />
+    <!--自定义数据转换器-->
     <!--<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">-->
         <!--<property name="converters">-->
             <!--<list>-->
@@ -24,14 +25,25 @@
         <!--</property>-->
     <!--</bean>-->
 
+    <!--配置全局的自定义编辑器-->
     <!--注解类型的 处理器映射器-->
     <!--如果只配置HandlerAdapter，而不配置HandlerMapping，会提示No adapter for handler错误-->
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>-->
     <!--注解类型的 处理器适配器-->
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-        <!--配置全局的自定义编辑器-->
-        <property name="webBindingInitializer">
-            <bean class="com.rongzi.converter.DataBindingInitializer"></bean>
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
+        <!--<property name="webBindingInitializer">-->
+            <!--<bean class="com.rongzi.converter.DataBindingInitializer"></bean>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--自定义数据格式化-->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="formatters">
+            <list>
+                <bean class="com.rongzi.formatter.DateFormatter">
+                    <constructor-arg value="yyyy-MM-dd"/>
+                </bean>
+            </list>
         </property>
     </bean>
 
