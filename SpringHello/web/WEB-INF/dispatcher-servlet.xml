@@ -37,12 +37,26 @@
     <!--</bean>-->
 
     <!--使用Spring实现的Formatter格式化数据-->
+    <!--<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">-->
+        <!--<property name="formatters">-->
+            <!--<list>-->
+                <!--<bean class="org.springframework.format.datetime.DateFormatter">-->
+                    <!--<property name="pattern" value="yyyy-MM-dd"></property>-->
+                <!--</bean>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+
+    <!--使用 FormatterRegistrar 注册 Formatter-->
+    <bean id="dateFormatter" class="com.rongzi.formatter.DateFormatter" >
+        <constructor-arg value="yyyy-MM-dd"/>
+    </bean>
     <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-        <property name="formatters">
+        <property name="formatterRegistrars">
             <list>
-                <bean class="org.springframework.format.datetime.DateFormatter">
-                    <!--属性-->
-                    <property name="pattern" value="yyyy-MM-dd"></property>
+                <bean class="com.rongzi.formatter.MyFormatterRegistrar">
+                    <property name="dateFormatter" ref="dateFormatter"/>
                 </bean>
             </list>
         </property>
