@@ -14,7 +14,7 @@
 </head>
 <body>
 <%--用户可以选择切换的语言环境--%>
-<a href="/user2/loginForm2?request_locale=zh_CN">中文</a> | <a href="/user2/loginForm2?request_locale=en_US">English</a>
+<a href="/user2/loginForm3?request_locale=zh_CN">中文</a> | <a href="/user2/loginForm3?request_locale=en_US">English</a>
 <br>
 <h3><spring:message code="title" /> </h3>
 <br>

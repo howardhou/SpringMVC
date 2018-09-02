@@ -29,6 +29,7 @@
     </mvc:interceptors>
     <!-- 语言区域解析器， 默认是 AcceptHeaderLocaleResolver-->
     <!--<bean class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver"/>-->
-    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
+    <!--<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>-->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver"/>
 
 </beans>

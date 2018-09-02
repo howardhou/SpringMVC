@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.support.RequestContext;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -128,6 +130,36 @@ public class User2Controller {
         }
         else {
             request.getSession().setAttribute(SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME, LocaleContextHolder.getLocale());
+        }
+
+        return "loginForm3";
+    }
+
+    // http://localhost:8080/user2/loginForm3
+    @RequestMapping(value = "/loginForm3", method = RequestMethod.GET)
+    public String loginForm3(String request_locale, HttpServletRequest request, HttpServletResponse response){
+        logger.info("request_locale = " + request_locale);
+
+        if (request_locale !=null){
+            if (request_locale.equals("zh_CN")){
+                Locale locale = new Locale("zh", "CN");
+
+                CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
+                cookieLocaleResolver.setLocale(request, response, locale);
+            }
+            else if (request_locale.equals("en_US")){
+                Locale locale = new Locale("en", "US");
+                CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
+                cookieLocaleResolver.setLocale(request, response, locale);
+            }
+            else {
+                CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
+                cookieLocaleResolver.setLocale(request, response, LocaleContextHolder.getLocale());
+            }
+        }
+        else {
+            CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
+            cookieLocaleResolver.setLocale(request, response, LocaleContextHolder.getLocale());
         }
 
         return "loginForm3";
