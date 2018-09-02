@@ -19,6 +19,13 @@
   <a href="/requestHeaderTest">测试 @RequestHeader 参数</a> <br><br>
   <a href="/cookieValueTest">测试 @CookieValue 参数</a> <br><br>
 
-  $END$
+
+  <h2>测试@ModelAttibute 的不同用法</h2>
+  <a href="/registerForm1">测试 @ModelAttribute(value="")注释返回具体类的方法</a> <br><br>
+  <a href="/registerForm2">测试 @ModelAttribute 注释void返回值的方法</a> <br><br>
+  <a href="/registerForm3">测试 @ModelAttribute 注释返回具体类的方法</a> <br><br>
+  <a href="/registerForm4">测试 @ModelAttribute 和 @RequestMapping 同时注释一个方法</a> <br><br>
+  <a href="/registerForm5">测试 @ModelAttribute 注释一个方法的参数</a> <br><br>
+
   </body>
 </html>
