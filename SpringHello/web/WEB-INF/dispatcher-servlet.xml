@@ -24,6 +24,17 @@
         <!--</property>-->
     <!--</bean>-->
 
+    <!--注解类型的 处理器映射器-->
+    <!--如果只配置HandlerAdapter，而不配置HandlerMapping，会提示No adapter for handler错误-->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>
+    <!--注解类型的 处理器适配器-->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <!--配置全局的自定义编辑器-->
+        <property name="webBindingInitializer">
+            <bean class="com.rongzi.converter.DataBindingInitializer"></bean>
+        </property>
+    </bean>
+
     <!--视图解析-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/" />

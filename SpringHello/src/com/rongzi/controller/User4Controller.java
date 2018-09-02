@@ -34,9 +34,9 @@ public class User4Controller {
     }
 
     // 在控制器初始化时注册 属性编辑器
-    @InitBinder
-    public void initBinder(WebDataBinder binder){
-        //注册自定义编辑器， 将Date类型使用 DateEditor 类进行转换
-        binder.registerCustomEditor(Date.class, new DateEditor());
-    }
+//    @InitBinder
+//    public void initBinder(WebDataBinder binder){
+//        //注册自定义编辑器， 将Date类型使用 DateEditor 类进行转换
+//        binder.registerCustomEditor(Date.class, new DateEditor());
+//    }
 }
