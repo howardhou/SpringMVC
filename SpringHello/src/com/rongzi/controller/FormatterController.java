@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class FormatterController {
-    private static final Log logger = LogFactory.getLog(User2Controller.class);
+    private static final Log logger = LogFactory.getLog(FormatterController.class);
 
     @RequestMapping("/testFormatter")
     public String index(){

@@ -1,21 +1,16 @@
 package com.rongzi.controller;
 
-import com.rongzi.converter.DateEditor;
-import com.sun.org.apache.xpath.internal.operations.Mod;
+import com.rongzi.entity.User;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Date;
 
 @Controller
 @RequestMapping("/user4")
 public class User4Controller {
 
-    private static final Log logger = LogFactory.getLog(User2Controller.class);
+    private static final Log logger = LogFactory.getLog(User4Controller.class);
 
     @RequestMapping("/{formName}")
     public String registerForm(@PathVariable String formName){

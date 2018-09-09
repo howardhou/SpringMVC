@@ -1,4 +1,4 @@
-package com.rongzi.controller;
+package com.rongzi.entity;
 
 import java.util.Date;
 

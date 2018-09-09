@@ -1,5 +1,6 @@
 package com.rongzi.controller;
 
+import com.rongzi.entity.User;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes("user")
 @RequestMapping("/session")
 public class SessionAttributesController {
-    private static final Log logger = LogFactory.getLog(User2Controller.class);
+    private static final Log logger = LogFactory.getLog(SessionAttributesController.class);
 
     @RequestMapping("/{formName}")
     public String loginForm(@PathVariable String formName){

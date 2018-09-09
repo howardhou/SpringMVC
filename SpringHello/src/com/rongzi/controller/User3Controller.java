@@ -1,5 +1,6 @@
 package com.rongzi.controller;
 
+import com.rongzi.entity.User;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/user3")
 public class User3Controller {
 
-    private static final Log logger = LogFactory.getLog(User2Controller.class);
+    private static final Log logger = LogFactory.getLog(User3Controller.class);
 
     // http://localhost:8080/user3/info
     @RequestMapping(value = "/info", method = RequestMethod.GET)

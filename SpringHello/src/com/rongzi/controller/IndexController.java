@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class IndexController {
-    private static final Log logger = LogFactory.getLog(User2Controller.class);
+    private static final Log logger = LogFactory.getLog(IndexController.class);
 
     @RequestMapping("/{formName}")
     public String registerForm(@PathVariable String formName){

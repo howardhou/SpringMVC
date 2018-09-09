@@ -13,7 +13,7 @@
 <body>
 <h3>注册页面</h3>
 <br>
-<form action="register" method="post">
+<form action="/user2/register" method="post">
     <table>
         <tr>
             <td><label>登录名：</label></td>

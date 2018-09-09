@@ -13,7 +13,7 @@
 <body>
 <h3>登录页面</h3>
 <br>
-<form action="login" method="post">
+<form action="/user2/login" method="post">
     <table>
         <tr>
             <td><label>登录名：</label></td>

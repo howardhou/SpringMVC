@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/register")
 public class Register1Controller {
 
-    private static final Log logger = LogFactory.getLog(User2Controller.class);
+    private static final Log logger = LogFactory.getLog(Register1Controller.class);
 
     //Model属性的名称是 loginname
     @ModelAttribute("loginname")

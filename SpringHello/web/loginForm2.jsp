@@ -15,7 +15,7 @@
 <body>
 <h3><spring:message code="title" /> </h3>
 <br>
-<form action="login" method="post">
+<form action="/user2/login" method="post">
     <table>
         <tr>
             <td><spring:message code="loginname" /> </td>

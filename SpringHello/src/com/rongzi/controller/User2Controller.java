@@ -1,5 +1,6 @@
 package com.rongzi.controller;
 
+import com.rongzi.entity.User;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -132,7 +133,7 @@ public class User2Controller {
             request.getSession().setAttribute(SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME, LocaleContextHolder.getLocale());
         }
 
-        return "loginForm3";
+        return "loginForm2";
     }
 
     // http://localhost:8080/user2/loginForm3
