@@ -12,6 +12,8 @@
 
     <!--自动扫描 base-package 下面的 java 文件， 如果扫描到有Spring注解的类，将扫描到的类注册为 Spring 的bean-->
     <context:component-scan base-package="com.rongzi.controller"></context:component-scan>
+    <!--如果不配置： 会出现 NoSuchBeanDefinitionException：No qualifying bean of type 异常， 解决方法： https://blog.csdn.net/durendong/article/details/54565296)-->
+    <context:component-scan base-package="com.rongzi.validator"></context:component-scan>
 
     <!-- 该标签会自动注册HandlerMapping 和 HandlerAdapter 两个Bean, 这是@Controller分发请求必须的-->
     <!-- 该标签还会注册默认的 conversionService， 以满足大多数类型的转换，这里是要注册自定义的类型转换器-->
