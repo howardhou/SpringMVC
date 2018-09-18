@@ -83,4 +83,6 @@
     <!--<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>-->
     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver"/>
 
+    <!--request 作用域，对于每个 HTTP 请求，每次请求都会产生不同的 Bean 实例，通常只会将 Web 的 Controller 设置为 request.-->
+    <bean id="user" class="com.rongzi.entity.User" scope="request"/>
 </beans>
