@@ -17,6 +17,7 @@
 <br>
 <p> Spring MVC form 标签默认绑定的 Model 是 command, 如果不想用默认的command， 可以使用 form 标签下的 commandName 属性修改将要使用的 Model
 </p>
+model 等价于 requestscope ： ${requestScope.user.username} <br>
 <form:form commandName="user" action="update" method="post">
     <table>
         <tr>
