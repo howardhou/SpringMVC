@@ -2,9 +2,12 @@
 
 # SpringMVC
 
-- hello项目是通过 Maven 下面的 maven-archetype-webapp 原型创建的， 主要功能是：通过 ajax 异步调用后端接口
+- hello项目 spring mvc + maven
+    - 是通过 Maven 下面的 maven-archetype-webapp 原型创建的
+    - 主要功能是：通过 ajax 异步调用后端接口
 
-- SpringHello 项目是通过 Spring 下面的 Spring MVC 创建的
+- SpringHello 项目
+    - 是通过 Spring 下面的 Spring MVC 模板创建的， 没有用到 maven
 
 - [使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架](https://www.cnblogs.com/jingpeipei/p/6291071.html)
 	- 需要注意选择的 archetype（原型） 为： maven-archetype-webapp, 别选错了

@@ -10,13 +10,17 @@
 
     <bean name="/hello" class="com.rongzi.controller.HelloController"></bean>
 
-    <!--自动扫描 base-package 下面的 java 文件， 如果扫描到有Spring注解的类，将扫描到的类注册为 Spring 的bean-->
+    <!-- 启用包扫描功能，以便注册 @Controller， @Service， @Repository， @Component 等注解的类成为Spring的Bean
+    自动扫描 base-package 下面的 java 文件， 如果扫描到有Spring注解的类，将扫描到的类注册为 Spring 的bean-->
     <context:component-scan base-package="com.rongzi.controller"></context:component-scan>
     <!--如果不配置： 会出现 NoSuchBeanDefinitionException：No qualifying bean of type 异常， 解决方法： https://blog.csdn.net/durendong/article/details/54565296)-->
     <context:component-scan base-package="com.rongzi.validator"></context:component-scan>
 
-    <!-- 该标签会自动注册HandlerMapping 和 HandlerAdapter 两个Bean, 这是@Controller分发请求必须的-->
-    <!-- 该标签还会注册默认的 conversionService， 以满足大多数类型的转换，这里是要注册自定义的类型转换器-->
+    <!-- 该标签会自动注册 RequestMappingHandlerMapping 和 RequestMappingHandlerAdapter 两个Bean, 这是@Controller分发请求必须的-->
+    <!-- HttpMessageConverter 被RequestMappingHandlerAdapter使用，负责将请求的消息转换为对象 或将对象转换为响应信息，如：将 JSON 或 xml 转换为对象 -->
+    <!-- 该标签会默认装配好 FormattingConversionServiceFactoryBean 实现数据格式化，1. 实现大部分的数据格式化， 2. 能够支持注解驱动的数据格式化 -->
+    <!-- 该标签会默认装配好 LocalValidatorFactoryBean 实现数据校验，注意：Spring本身没有JSR303的实现，需要引入hibernate validator jar包-->
+    <!-- 这里的 conversionService 覆盖了默认实现，使用自定义的类型转换器 或 类型格式化-->
     <mvc:annotation-driven conversion-service="conversionService" />
     <!--自定义数据转换器-->
     <!--<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">-->
@@ -72,6 +76,7 @@
 
     <!--国际化， id="messageSource" 不能省略，也必须是 messageSource-->
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <!-- basenames 属性 用来指定用于国际化的配置文件名称，这里是 strings.properties -->
         <property name="basenames" value="strings"/>
     </bean>
     <!--国际化操作拦截器，如果采用基于 Session 、Cookie ， 必须配置-->

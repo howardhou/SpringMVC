@@ -8,6 +8,7 @@
     <context:component-scan base-package="com.rongzi.controller" />
 
     <!--自动注册 RequestMappingHandlerMapping 和 RequestMappingHandlerAdapter 两个Bean-->
+    <!--这两个类提供了数据转化（JSON，xml等），数据格式化，数据校验等功能-->
     <mvc:annotation-driven/>
 
     <!--Spring MVC 默认使用的是 MappingJackson2HttpMessageConverter 转换器， 所以必须加入Jackson的依赖，但是实际中，更多使用fastjson-->
@@ -32,7 +33,8 @@
         <!--</mvc:message-converters>-->
     <!--</mvc:annotation-driven>-->
 
-    <!--使用默认的 Servlet 来响应静态文件，因为 DispatcherServlet 会截获所有URL请求，找不到时，会报 404 错误，加上默认servlet 会去找静态文件-->
+    <!--使用默认的 Servlet 来响应静态文件，因为 DispatcherServlet 会截获所有URL请求，找不到时，会报 404 错误，
+    加上默认servlet后，servlet 在找不到时会去找静态文件内容-->
     <mvc:default-servlet-handler/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
